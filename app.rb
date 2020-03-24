@@ -9,6 +9,6 @@ class App < Sinatra::Base
   post '/' do
   @analyzed_text = TextAnalyzer.new(params[:user_text])
 
-    erb :results
+    erb :results, { locals: { :analyzed_text => @analyzed_text } }
   end
 end
